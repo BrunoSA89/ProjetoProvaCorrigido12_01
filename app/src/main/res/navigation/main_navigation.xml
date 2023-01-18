@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/menuFragment2">
+
+    <fragment
+        android:id="@+id/menuFragment2"
+        android:name="com.example.novoprojetoapp12janeiro.View.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment2_to_cadastroNotasFragment"
+            app:destination="@id/cadastroNotasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cadastroNotasFragment"
+        android:name="com.example.novoprojetoapp12janeiro.View.CadastroNotasFragment"
+        android:label="fragment_cadastro_notas"
+        tools:layout="@layout/fragment_cadastro_notas" >
+        <action
+            android:id="@+id/action_cadastroNotasFragment_to_recyclerViewFragment"
+            app:destination="@id/recyclerViewFragment" />
+        <argument
+            android:name="login"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/recyclerViewFragment"
+        android:name="com.example.novoprojetoapp12janeiro.View.RecyclerViewFragment"
+        android:label="fragment_recycler_view"
+        tools:layout="@layout/fragment_recycler_view" >
+        <action
+            android:id="@+id/action_recyclerViewFragment_to_telaDetalesFragment"
+            app:destination="@id/telaDetalesFragment" />
+        <argument
+            android:name="notas"
+            app:argType="float" />
+    </fragment>
+    <fragment
+        android:id="@+id/telaDetalesFragment"
+        android:name="com.example.novoprojetoapp12janeiro.View.TelaDetalesFragment"
+        android:label="fragment_tela_detales"
+        tools:layout="@layout/fragment_tela_detales" />
+</navigation>

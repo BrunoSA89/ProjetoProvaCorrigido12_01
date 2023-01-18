@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="View.CadastroNotasFragment"
+    android:id="@+id/TelaCadastroNotas">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="264dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="48dp"
+        android:text="Cadastro de Notas"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/editTextNomeAluno"
+        android:layout_width="345dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name do aluno"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textViewNota1"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="76dp"
+        android:text="Nota 1"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNomeAluno"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextNomeAluno"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomeAluno" />
+
+    <TextView
+        android:id="@+id/textViewNota2"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Nota 2"
+        app:layout_constraintEnd_toEndOf="@+id/textViewNota1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewNota1"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNota1" />
+
+    <TextView
+        android:id="@+id/textViewNota3"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Nota 3"
+        app:layout_constraintEnd_toEndOf="@+id/textViewNota2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewNota2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNota2" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Nota 4"
+        app:layout_constraintEnd_toEndOf="@+id/textViewNota3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewNota3"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNota3" />
+
+    <EditText
+        android:id="@+id/editTextNumberNota1"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="76dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNomeAluno"
+        app:layout_constraintHorizontal_bias="0.825"
+        app:layout_constraintStart_toStartOf="@+id/editTextNomeAluno"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomeAluno" />
+
+    <EditText
+        android:id="@+id/editTextNumberNota2"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNumberNota1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumberNota1"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberNota1" />
+
+    <EditText
+        android:id="@+id/editTextNumberNota3"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNumberNota2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumberNota2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberNota2" />
+
+    <EditText
+        android:id="@+id/editTextNumber4"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNumberNota3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumberNota3"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberNota3" />
+
+    <Button
+        android:id="@+id/buttonCadastroNota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="448dp"
+        android:text="Cadastrar"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNomeAluno"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/editTextNomeAluno"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomeAluno" />
+</androidx.constraintlayout.widget.ConstraintLayout>
