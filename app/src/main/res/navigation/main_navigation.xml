@@ -35,8 +35,8 @@
             android:id="@+id/action_recyclerViewFragment_to_telaDetalesFragment"
             app:destination="@id/telaDetalesFragment" />
         <argument
-            android:name="notas"
-            app:argType="float" />
+            android:name="dataCalculo"
+            app:argType="com.example.novoprojetoapp12janeiro.Model.DataCalculo" />
     </fragment>
     <fragment
         android:id="@+id/telaDetalesFragment"
