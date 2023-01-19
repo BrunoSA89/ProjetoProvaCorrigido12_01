@@ -13,7 +13,8 @@ import com.example.novoprojetoapp12janeiro.View.RecyclerViewFragment
 import kotlinx.android.synthetic.main.res_list_item.view.*
 
 class Adapter(
-    private val myList : List<DataCalculo>
+    private val myList : List<DataCalculo>,
+    private val onClicked: () -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : RecyclerView.ViewHolder {
@@ -25,7 +26,7 @@ class Adapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder) {
             is MyViewHolder -> {
-                holder.populateItems(myList[position])
+                holder.populateItems(myList[position], onClicked)
             }
         }
     }
@@ -38,9 +39,13 @@ class Adapter(
         val textName: TextView = itemView.name
         val textNota: TextView = itemView.nota
 
-        fun populateItems(dataCalculo: DataCalculo) {
+        fun populateItems(dataCalculo: DataCalculo, onClicked: () -> Unit) {
             textName.text = dataCalculo.nome
             textNota.text = dataCalculo.media.toString()
+
+            itemView.setOnClickListener {
+                onClicked
+            }
         }
     }
 }

@@ -28,7 +28,7 @@
         android:layout_marginTop="44dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name do aluno"
+        android:hint="Nome do Aluno"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="@+id/textView"

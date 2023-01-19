@@ -1,6 +1,6 @@
-package com.example.novoprojetoapp12janeiro.Model
+package com.example.novoprojetoapp12janeiro.Resource
 
-import android.provider.ContactsContract.Profile
+import com.example.novoprojetoapp12janeiro.Model.PerfilRecycler
 
 class DataSource {
     companion object {

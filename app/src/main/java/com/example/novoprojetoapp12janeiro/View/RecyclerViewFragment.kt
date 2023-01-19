@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,13 +27,25 @@ class RecyclerViewFragment : Fragment(R.layout.fragment_recycler_view) {
     }
 
     fun setAdapter() {
-        listAdapter = Adapter(setListAdapter(args.dataCalculo))
+        listAdapter = Adapter(setListAdapter(args.dataCalculo)) {
+            setClicked()
+        }
 
         recyclerViewPagina.adapter = listAdapter
         recyclerViewPagina.layoutManager = LinearLayoutManager(requireContext())
     }
 
     fun setListAdapter(dataCalculo: DataCalculo) : List<DataCalculo>{
-        return listOf(dataCalculo)
+        var list = ArrayList<DataCalculo>()
+        list.add(dataCalculo)
+        return list
+    }
+
+    fun setClicked() {
+        val action = RecyclerViewFragmentDirections.actionRecyclerViewFragmentToTelaDetalesFragment(
+            args.perfilRecycler,
+            args.dataCalculo
+        )
+        findNavController().navigate(action)
     }
 }

@@ -6,3 +6,5 @@ data class DataCalculo(
     var nome: String,
     var media: Float
 ) : Serializable
+
+//Serialezable puxa o args, ficar em formato de objeto

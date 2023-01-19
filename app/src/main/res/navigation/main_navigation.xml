@@ -35,6 +35,9 @@
             android:id="@+id/action_recyclerViewFragment_to_telaDetalesFragment"
             app:destination="@id/telaDetalesFragment" />
         <argument
+            android:name="perfilRecycler"
+            app:argType="com.example.novoprojetoapp12janeiro.Model.PerfilRecycler" />
+        <argument
             android:name="dataCalculo"
             app:argType="com.example.novoprojetoapp12janeiro.Model.DataCalculo" />
     </fragment>
@@ -42,5 +45,12 @@
         android:id="@+id/telaDetalesFragment"
         android:name="com.example.novoprojetoapp12janeiro.View.TelaDetalesFragment"
         android:label="fragment_tela_detales"
-        tools:layout="@layout/fragment_tela_detales" />
+        tools:layout="@layout/fragment_tela_detales" >
+        <argument
+            android:name="perfilRecycler"
+            app:argType="com.example.novoprojetoapp12janeiro.Model.PerfilRecycler" />
+        <argument
+            android:name="dataCalculo"
+            app:argType="com.example.novoprojetoapp12janeiro.Model.DataCalculo" />
+    </fragment>
 </navigation>
