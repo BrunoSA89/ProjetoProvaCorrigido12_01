@@ -44,7 +44,7 @@ class Adapter(
             textNota.text = dataCalculo.media.toString()
 
             itemView.setOnClickListener {
-                onClicked
+                onClicked()
             }
         }
     }
