@@ -27,9 +27,11 @@ class RecyclerViewFragment : Fragment(R.layout.fragment_recycler_view) {
     }
 
     fun setAdapter() {
-        listAdapter = Adapter(setListAdapter(args.dataCalculo)) {
-            setClicked()
-        }
+        listAdapter = Adapter(setListAdapter(args.dataCalculo),
+        args.perfilRecycler,
+            { setClicked(it) },
+            { editCard(it) },
+            { deleteCard(it) })
 
         recyclerViewPagina.adapter = listAdapter
         recyclerViewPagina.layoutManager = LinearLayoutManager(requireContext())
@@ -41,11 +43,20 @@ class RecyclerViewFragment : Fragment(R.layout.fragment_recycler_view) {
         return list
     }
 
-    fun setClicked() {
+    fun setClicked(perfilRecycler: PerfilRecycler) {
         val action = RecyclerViewFragmentDirections.actionRecyclerViewFragmentToTelaDetalesFragment(
-            args.perfilRecycler,
+            perfilRecycler,
             args.dataCalculo
         )
         findNavController().navigate(action)
+    }
+// editar a partir dessa parte para realizar a funcionalidade do botao
+
+    fun editCard(perfilRecycler: PerfilRecycler) {
+        println("ATUALIZANDO USUÁRIO")
+    }
+
+    fun deleteCard(perfilRecycler: PerfilRecycler) {
+        println("DELETANDO USUÁRIO")
     }
 }

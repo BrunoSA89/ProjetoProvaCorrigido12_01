@@ -14,9 +14,11 @@ import kotlinx.android.synthetic.main.res_list_item.view.*
 
 class Adapter(
     private val myList : List<DataCalculo>,
-    private val onClicked: () -> Unit
+    private val perfilRecycler: PerfilRecycler,
+    private val onClicked: (PerfilRecycler) -> Unit,
+    private val onEditeClicked: (PerfilRecycler) -> Unit,
+    private val onDeleteClicked: (PerfilRecycler) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : RecyclerView.ViewHolder {
         return MyViewHolder (
             LayoutInflater.from(parent.context).inflate(R.layout.res_list_item, parent, false)
@@ -26,7 +28,7 @@ class Adapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder) {
             is MyViewHolder -> {
-                holder.populateItems(myList[position], onClicked)
+                holder.populateItems(myList[position], perfilRecycler, onClicked, onEditeClicked, onDeleteClicked)
             }
         }
     }
@@ -39,12 +41,23 @@ class Adapter(
         val textName: TextView = itemView.name
         val textNota: TextView = itemView.nota
 
-        fun populateItems(dataCalculo: DataCalculo, onClicked: () -> Unit) {
+        fun populateItems(dataCalculo: DataCalculo,
+                          perfilRecycler: PerfilRecycler,
+                          onClicked: (PerfilRecycler) -> Unit,
+                          onEditeClicked: (PerfilRecycler) -> Unit,
+                          onDeleteClicked: (PerfilRecycler) -> Unit) {
+
             textName.text = dataCalculo.nome
             textNota.text = dataCalculo.media.toString()
 
             itemView.setOnClickListener {
-                onClicked()
+                onClicked(perfilRecycler)
+            }
+            itemView.buttonEdit.setOnClickListener {
+                onEditeClicked(perfilRecycler)
+            }
+            itemView.buttonDelete.setOnClickListener {
+                onDeleteClicked(perfilRecycler)
             }
         }
     }

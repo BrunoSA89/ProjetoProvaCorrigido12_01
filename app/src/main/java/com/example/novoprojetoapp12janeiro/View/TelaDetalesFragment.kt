@@ -16,11 +16,6 @@ class TelaDetalesFragment : Fragment(R.layout.fragment_tela_detales) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        println(">>>>>>>>>>>>>>>>>>")
-        println(args.perfilRecycler)
-        println(args.dataCalculo)
-        println(">>>>>>>>>>>>>>>>>>")
-
         // ID do campo mais o que contem mais args mais arquivo aonde
         // esta a informacao kt mais ID strig
 
