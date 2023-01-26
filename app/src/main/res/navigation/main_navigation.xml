@@ -65,6 +65,11 @@
         android:name="com.example.novoprojetoapp12janeiro.UpdateFragment"
         android:label="fragment_update"
         tools:layout="@layout/fragment_update" >
+        <argument
+            android:name="perfilRecycler"
+            app:argType="com.example.novoprojetoapp12janeiro.Model.PerfilRecycler"
+            app:nullable="true"
+            android:defaultValue="@null" />
         <action
             android:id="@+id/action_updateFragment_to_recyclerViewFragment"
             app:destination="@id/recyclerViewFragment" />

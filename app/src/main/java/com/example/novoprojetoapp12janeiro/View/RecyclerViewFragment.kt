@@ -28,17 +28,22 @@ class RecyclerViewFragment : Fragment(R.layout.fragment_recycler_view) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         setListAdapter(args.dataCalculo, args.perfilRecycler)
         setAdapter()
+
+
     }
 
     override fun onResume() {
         super.onResume()
 
         if (args.perfilRecyclerUpdated != null) {
-            setAdapter()
+
+            var argsRegister = args.perfilRecycler
+            var argsUpdated = args.perfilRecyclerUpdated
+
+
+            editCard(argsRegister, argsUpdated!!)
         }
     }
 
@@ -47,8 +52,9 @@ class RecyclerViewFragment : Fragment(R.layout.fragment_recycler_view) {
         // (Linha 32 <) -> Inicializa o adapter e coloca dentro da variável listAdapter
         listAdapter = Adapter(list,
         args.perfilRecycler,
-            { setClicked(it) }, // <<<<- Função ao clicar no card
-            { args.perfilRecyclerUpdated?.let { it1 -> editCard(it, it1) } }, // <<<<- Função de editar card
+            { setClicked(it) },
+            { navigateToUpdate(it) },// <<<<- Função ao clicar no card
+//            { args.perfilRecyclerUpdated?.let { it1 -> editCard(it, it1) } }, // <<<<- Função de editar card
             { deleteCard(it) }) // <<<<- Função de deletar card
 
         recyclerViewPagina.adapter = listAdapter // <<<- Coloca a variável adapter no recycler view
@@ -60,8 +66,8 @@ class RecyclerViewFragment : Fragment(R.layout.fragment_recycler_view) {
         perfilRecyclerlist.add(perfilRecycler)
 
     }
-// Funcao click recycler acao de botao
 
+// Funcao click recycler acao de botao
     fun setClicked(perfilRecycler: PerfilRecycler) {
         val action = RecyclerViewFragmentDirections.actionRecyclerViewFragmentToTelaDetalesFragment(
             perfilRecycler,
@@ -69,12 +75,20 @@ class RecyclerViewFragment : Fragment(R.layout.fragment_recycler_view) {
         )
         findNavController().navigate(action)
 // clic do botao de editar
-        view.findViewById<Button>(R.id.buttonAtualizarNota).setOnClickListener {
-            findNavController().navigate(R.id.action_updateFragment_to_recyclerViewFragment)
-        }
+
+//        view.findViewById<Button>(R.id.buttonAtualizarNota).setOnClickListener {
+//            findNavController().navigate(R.id.action_updateFragment_to_recyclerViewFragment)
+//        }
     }
 // editar a partir dessa parte para realizar a funcionalidade do botao
 // Funcao botao de editar, vai os parametros da minha fun de perfil
+
+    fun navigateToUpdate(perfilRecycler: PerfilRecycler) {
+        val action = RecyclerViewFragmentDirections.actionRecyclerViewFragmentToUpdateFragment(
+            perfilRecycler
+        )
+        findNavController().navigate(action)
+    }
 
     fun editCard(perfilRecycler: PerfilRecycler, perfilRecyclerUpDate: PerfilRecycler ) {
         setListAdapter(args.dataCalculo, args.perfilRecycler)
