@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,31 +18,49 @@ import kotlinx.android.synthetic.main.fragment_recycler_view.*
 
 class RecyclerViewFragment : Fragment(R.layout.fragment_recycler_view) {
 
+    // Variáveis sempre são declaradas antes do método principal -> override
+    // Funções customizadas sempre são declaradas depois dos métodos principais -> override
     val args: RecyclerViewFragmentArgs by navArgs()
     lateinit var listAdapter: Adapter
+    var list = mutableListOf<DataCalculo>()
+    var perfilRecyclerlist = mutableListOf<PerfilRecycler>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
+        setListAdapter(args.dataCalculo, args.perfilRecycler)
         setAdapter()
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        if (args.perfilRecyclerUpdated != null) {
+            setAdapter()
+        }
+    }
+
+    // Diz pro recycler quem é o adaptador dele e quem vai manipular ele
     fun setAdapter() {
-        listAdapter = Adapter(setListAdapter(args.dataCalculo),
+        // (Linha 32 <) -> Inicializa o adapter e coloca dentro da variável listAdapter
+        listAdapter = Adapter(list,
         args.perfilRecycler,
-            { setClicked(it) },
-            { editCard(it) },
-            { deleteCard(it) })
+            { setClicked(it) }, // <<<<- Função ao clicar no card
+            { args.perfilRecyclerUpdated?.let { it1 -> editCard(it, it1) } }, // <<<<- Função de editar card
+            { deleteCard(it) }) // <<<<- Função de deletar card
 
-        recyclerViewPagina.adapter = listAdapter
-        recyclerViewPagina.layoutManager = LinearLayoutManager(requireContext())
+        recyclerViewPagina.adapter = listAdapter // <<<- Coloca a variável adapter no recycler view
+        recyclerViewPagina.layoutManager = LinearLayoutManager(requireContext()) // <<<- Diz pro recycler view quem é o responsável por manipula-lo (requireContext = RecyclerViewFragment)
     }
 
-    fun setListAdapter(dataCalculo: DataCalculo) : List<DataCalculo>{
-        var list = ArrayList<DataCalculo>()
+    fun setListAdapter(dataCalculo: DataCalculo, perfilRecycler: PerfilRecycler) {
         list.add(dataCalculo)
-        return list
+        perfilRecyclerlist.add(perfilRecycler)
+
     }
+// Funcao click recycler acao de botao
 
     fun setClicked(perfilRecycler: PerfilRecycler) {
         val action = RecyclerViewFragmentDirections.actionRecyclerViewFragmentToTelaDetalesFragment(
@@ -49,14 +68,24 @@ class RecyclerViewFragment : Fragment(R.layout.fragment_recycler_view) {
             args.dataCalculo
         )
         findNavController().navigate(action)
+// clic do botao de editar
+        view.findViewById<Button>(R.id.buttonAtualizarNota).setOnClickListener {
+            findNavController().navigate(R.id.action_updateFragment_to_recyclerViewFragment)
+        }
     }
 // editar a partir dessa parte para realizar a funcionalidade do botao
+// Funcao botao de editar, vai os parametros da minha fun de perfil
 
-    fun editCard(perfilRecycler: PerfilRecycler) {
-        println("ATUALIZANDO USUÁRIO")
+    fun editCard(perfilRecycler: PerfilRecycler, perfilRecyclerUpDate: PerfilRecycler ) {
+        setListAdapter(args.dataCalculo, args.perfilRecycler)
+
+        perfilRecyclerlist.remove(perfilRecycler)
+        perfilRecyclerlist.add(perfilRecyclerUpDate)
+
     }
+// Fun de deletar objeto com click de botao
 
     fun deleteCard(perfilRecycler: PerfilRecycler) {
-        println("DELETANDO USUÁRIO")
+        perfilRecyclerlist.remove(perfilRecycler)
     }
 }

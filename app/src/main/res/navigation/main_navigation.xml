@@ -40,6 +40,13 @@
         <argument
             android:name="dataCalculo"
             app:argType="com.example.novoprojetoapp12janeiro.Model.DataCalculo" />
+        <action
+            android:id="@+id/action_recyclerViewFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+        <argument android:name="perfilRecyclerUpdated"
+            app:argType="com.example.novoprojetoapp12janeiro.Model.PerfilRecycler"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/telaDetalesFragment"
@@ -52,5 +59,14 @@
         <argument
             android:name="dataCalculo"
             app:argType="com.example.novoprojetoapp12janeiro.Model.DataCalculo" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.novoprojetoapp12janeiro.UpdateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_recyclerViewFragment"
+            app:destination="@id/recyclerViewFragment" />
     </fragment>
 </navigation>

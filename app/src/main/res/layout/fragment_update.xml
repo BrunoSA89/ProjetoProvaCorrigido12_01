@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="View.CadastroNotasFragment"
+    android:id="@+id/TelaCadastroNotas">
+
+
+    <TextView
+        android:id="@+id/textViewUpdate"
+        android:layout_width="264dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="48dp"
+        android:text="Atualizar Notas"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/editTextNomeAlunoUpdate"
+        android:layout_width="345dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Nome do Aluno"
+        app:layout_constraintEnd_toEndOf="@+id/textViewUpdate"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/textViewUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUpdate" />
+
+    <TextView
+        android:id="@+id/textViewNota1Update"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="76dp"
+        android:text="Nota 1"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNomeAlunoUpdate"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextNomeAlunoUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomeAlunoUpdate" />
+
+    <TextView
+        android:id="@+id/textViewNota2Update"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Nota 2"
+        app:layout_constraintEnd_toEndOf="@+id/textViewNota1Update"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewNota1Update"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNota1Update" />
+
+    <TextView
+        android:id="@+id/textViewNota3Update"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Nota 3"
+        app:layout_constraintEnd_toEndOf="@+id/textViewNota2Update"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewNota2Update"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNota2Update" />
+
+    <TextView
+        android:id="@+id/textView5Update"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Nota 4"
+        app:layout_constraintEnd_toEndOf="@+id/textViewNota3Update"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewNota3Update"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNota3Update" />
+
+    <EditText
+        android:id="@+id/editTextNumberNota1Update"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="76dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNomeAlunoUpdate"
+        app:layout_constraintHorizontal_bias="0.825"
+        app:layout_constraintStart_toStartOf="@+id/editTextNomeAlunoUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomeAlunoUpdate" />
+
+    <EditText
+        android:id="@+id/editTextNumberNota2Update"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNumberNota1Update"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumberNota1Update"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberNota1Update" />
+
+    <EditText
+        android:id="@+id/editTextNumberNota3Update"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNumberNota2Update"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumberNota2Update"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberNota2Update" />
+
+    <EditText
+        android:id="@+id/editTextNumberNota4Update"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNumberNota3Update"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumberNota3Update"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberNota3Update" />
+
+    <Button
+        android:id="@+id/buttonAtualizarNota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="448dp"
+        android:text="Atualizar"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNomeAlunoUpdate"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/editTextNomeAlunoUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomeAlunoUpdate" />
+</androidx.constraintlayout.widget.ConstraintLayout>
