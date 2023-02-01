@@ -20,7 +20,9 @@ class RecyclerViewFragment : Fragment(R.layout.fragment_recycler_view) {
 
     // Variáveis sempre são declaradas antes do método principal -> override
     // Funções customizadas sempre são declaradas depois dos métodos principais -> override
+
     val args: RecyclerViewFragmentArgs by navArgs()
+    private var floatingActionButton = false
     lateinit var listAdapter: Adapter
     var list = mutableListOf<DataCalculo>()
     var perfilRecyclerlist = mutableListOf<PerfilRecycler>()
@@ -31,9 +33,15 @@ class RecyclerViewFragment : Fragment(R.layout.fragment_recycler_view) {
         setListAdapter(args.dataCalculo, args.perfilRecycler)
         setAdapter()
 
+        checkReceiptNewData()
+        checkInitialized()
+        viewModel.onSaveStudentData()
+
+        floatActionButton()
+
 
     }
-
+    
     override fun onResume() {
         super.onResume()
 
